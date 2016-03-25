@@ -1,7 +1,7 @@
 {
   "name": "hash-jenkins",
   "description": "Jenkins oaat and lookup2 hash functions",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "jenkins.js",
   "license": "MIT",
   "repository": {

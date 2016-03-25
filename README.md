@@ -3,6 +3,8 @@ hash-jenkins
 
 Bob Jenkins lookup2 and one-at-a-time hash functions
 
+[![Build Status](https://travis-ci.org/jseidelin/hash-jenkins.svg?branch=master)](https://travis-ci.org/jseidelin/hash-jenkins)
+
 ## Usage
 
 ```javascript
