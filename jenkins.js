@@ -2,11 +2,7 @@
 32-bit Hash function based on lookup2 by Bob Jenkins:
 http://burtleburtle.net/bob/c/lookup2.c
 lookup2.c, by Bob Jenkins, December 1996, Public Domain.
-
-JavaScript version by Jacob Seidelin
-
 */
-
 var JenkinsLookup2 = (function() {
 
     function mix(a, b, c) {
@@ -84,7 +80,8 @@ var JenkinsLookup2 = (function() {
         --------------------------------------------------------------------
         */
         initval = initval || 0;
-        length = lenpos = data.length;
+        var lenpos = data.length;
+        var length = lenpos;
         
         var a, b, c, p, q;
 
@@ -92,8 +89,8 @@ var JenkinsLookup2 = (function() {
             return chr.charCodeAt(0);
         }
         
-        if (length == 0) {
-            return 0
+        if (length === 0) {
+            return 0;
         }
 
         // Set up the internal state
@@ -139,20 +136,20 @@ var JenkinsLookup2 = (function() {
 
 
 /* Jenkins one-at-a-time hash */
-
 function JenkinsOAAT(key) {
     var hash = 0;
-    for (var i=0; i<key.length; ++i) {
+    for (var i = 0; i < key.length; ++i) {
         hash += key.charCodeAt(i);
         hash += (hash << 10);
-        hash ^= (hash >> 6);
+        hash ^= (hash >>> 6);
     }
     hash += (hash << 3);
-    hash ^= (hash >> 11);
+    hash ^= (hash >>> 11);
     hash += (hash << 15);
     return (hash >>> 0);
 }
 
-
-exports.lookup2 = JenkinsLookup2;
-exports.oaat = JenkinsOAAT;
+module.exports = {
+    lookup2: JenkinsLookup2,
+    oaat: JenkinsOAAT
+};
